@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>cn.neucloud.server.common.msg.ActorTerminationMsg</OriginalElement>
+  <nodes>
+    <node x="420.0" y="82.0">cn.neucloud.server.common.msg.rule.RuleTerminationMsg</node>
+    <node x="0.0" y="82.0">cn.neucloud.server.common.msg.session.SessionTerminationMsg</node>
+    <node x="217.0" y="0.0">cn.neucloud.server.common.msg.ActorTerminationMsg</node>
+    <node x="213.0" y="82.0">cn.neucloud.server.common.msg.plugin.PluginTerminationMsg</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cn.neucloud.server.common.msg.rule.RuleTerminationMsg" target="cn.neucloud.server.common.msg.ActorTerminationMsg">
+      <point x="0.0" y="-16.0" />
+      <point x="506.5" y="57.0" />
+      <point x="366.16666666666663" y="57.0" />
+      <point x="59.66666666666663" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.msg.plugin.PluginTerminationMsg" target="cn.neucloud.server.common.msg.ActorTerminationMsg">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.msg.session.SessionTerminationMsg" target="cn.neucloud.server.common.msg.ActorTerminationMsg">
+      <point x="0.0" y="-16.0" />
+      <point x="96.5" y="57.0" />
+      <point x="246.83333333333334" y="57.0" />
+      <point x="-59.66666666666666" y="16.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="89.5" y="16.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>cn.neucloud.server.actors.app.AppActor</OriginalElement>
+  <nodes>
+    <node x="513.8355263157895" y="676.0">cn.neucloud.server.actors.app.AppActor</node>
+    <node x="61.25" y="430.0">cn.neucloud.server.actors.rpc.RpcManagerActor.ActorCreator</node>
+    <node x="182.58552631578948" y="512.0">cn.neucloud.server.actors.service.DefaultActorService</node>
+    <node x="257.91118421052636" y="82.0">cn.neucloud.server.actors.ContextAwareActor</node>
+    <node x="537.5" y="348.0">cn.neucloud.server.actors.rule.RuleActor.ActorCreator</node>
+    <node x="334.375" y="184.0">cn.neucloud.server.actors.session.SessionActor</node>
+    <node x="218.5" y="348.0">cn.neucloud.server.actors.stats.StatsActor</node>
+    <node x="597.75" y="594.0">cn.neucloud.server.actors.user.UserActor.ActorCreator</node>
+    <node x="210.0" y="430.0">cn.neucloud.server.actors.stats.StatsActor.ActorCreator</node>
+    <node x="522.0" y="184.0">cn.neucloud.server.actors.service.ComponentActor</node>
+    <node x="334.875" y="266.0">cn.neucloud.server.actors.session.SessionActor.ActorCreator</node>
+    <node x="338.5" y="348.0">cn.neucloud.server.actors.session.SessionManagerActor</node>
+    <node x="547.0" y="266.0">cn.neucloud.server.actors.rule.RuleActor</node>
+    <node x="534.5" y="430.0">cn.neucloud.server.actors.rule.RuleManager</node>
+    <node x="607.75" y="512.0">cn.neucloud.server.actors.user.UserActor</node>
+    <node x="276.41118421052636" y="0.0">akka.actor.UntypedActor</node>
+    <node x="42.75" y="348.0">cn.neucloud.server.actors.rpc.RpcManagerActor</node>
+    <node x="23.5" y="266.0">cn.neucloud.server.actors.rpc.RpcSessionActor.ActorCreator</node>
+    <node x="369.1217105263158" y="430.0">cn.neucloud.server.actors.session.SessionManagerActor.ActorCreator</node>
+    <node x="10.5" y="184.0">cn.neucloud.server.actors.rpc.RpcSessionActor</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cn.neucloud.server.actors.user.UserActor.ActorCreator" target="cn.neucloud.server.actors.user.UserActor">
+      <point x="29.25" y="-16.0" />
+      <point x="685.5" y="569.0" />
+      <point x="680.5" y="569.0" />
+      <point x="24.25" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.session.SessionManagerActor" target="cn.neucloud.server.actors.ContextAwareActor">
+      <point x="44.75" y="-16.0" />
+      <point x="472.75" y="323.0" />
+      <point x="462.875" y="323.0" />
+      <point x="462.875" y="154.0" />
+      <point x="369.28618421052636" y="154.0" />
+      <point x="30.375" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.user.UserActor" target="cn.neucloud.server.actors.ContextAwareActor">
+      <point x="24.25" y="-16.0" />
+      <point x="680.5" y="134.0" />
+      <point x="409.78618421052636" y="134.0" />
+      <point x="70.875" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.session.SessionActor.ActorCreator" target="cn.neucloud.server.actors.session.SessionActor">
+      <point x="-29.25" y="-16.0" />
+      <point x="-29.5" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.service.DefaultActorService" target="cn.neucloud.server.actors.stats.StatsActor.ActorCreator">
+      <point x="0.0" y="-16.0" />
+      <point x="265.0855263157895" y="487.0" />
+      <point x="268.5" y="487.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.session.SessionManagerActor" target="cn.neucloud.server.actors.session.SessionActor.ActorCreator">
+      <point x="-44.75" y="-16.0" />
+      <point x="383.25" y="323.0" />
+      <point x="393.375" y="323.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.rpc.RpcSessionActor" target="cn.neucloud.server.actors.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="82.0" y="144.0" />
+      <point x="288.28618421052636" y="144.0" />
+      <point x="-50.625" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.rpc.RpcManagerActor.ActorCreator" target="cn.neucloud.server.actors.rpc.RpcManagerActor">
+      <point x="29.25" y="-16.0" />
+      <point x="149.0" y="405.0" />
+      <point x="158.25" y="405.0" />
+      <point x="38.5" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.service.ComponentActor" target="cn.neucloud.server.actors.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="596.0" y="144.0" />
+      <point x="389.53618421052636" y="144.0" />
+      <point x="50.625" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.app.AppActor" target="cn.neucloud.server.actors.ContextAwareActor">
+      <point x="-32.0" y="-16.0" />
+      <point x="529.8355263157895" y="651.0" />
+      <point x="0.0" y="651.0" />
+      <point x="0.0" y="134.0" />
+      <point x="268.03618421052636" y="134.0" />
+      <point x="-70.875" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.stats.StatsActor.ActorCreator" target="cn.neucloud.server.actors.stats.StatsActor">
+      <point x="-29.25" y="-16.0" />
+      <point x="239.25" y="405.0" />
+      <point x="243.5" y="405.0" />
+      <point x="-25.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.app.AppActor" target="cn.neucloud.server.actors.user.UserActor.ActorCreator">
+      <point x="32.0" y="-16.0" />
+      <point x="593.8355263157895" y="651.0" />
+      <point x="656.25" y="651.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.rule.RuleActor.ActorCreator" target="cn.neucloud.server.actors.rule.RuleActor">
+      <point x="-29.25" y="-16.0" />
+      <point x="566.75" y="323.0" />
+      <point x="571.5" y="323.0" />
+      <point x="-24.5" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.service.DefaultActorService" target="cn.neucloud.server.actors.session.SessionManagerActor.ActorCreator">
+      <point x="55.0" y="-16.0" />
+      <point x="320.0855263157895" y="487.0" />
+      <point x="427.6217105263158" y="487.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.rule.RuleActor" target="cn.neucloud.server.actors.service.ComponentActor">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.ContextAwareActor" target="akka.actor.UntypedActor">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.stats.StatsActor" target="cn.neucloud.server.actors.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="268.5" y="164.0" />
+      <point x="328.78618421052636" y="164.0" />
+      <point x="-10.125" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.app.AppActor" target="cn.neucloud.server.actors.rule.RuleManager">
+      <point x="0.0" y="-16.0" />
+      <point x="561.8355263157895" y="651.0" />
+      <point x="565.25" y="651.0" />
+      <point x="-30.75" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.rpc.RpcManagerActor" target="cn.neucloud.server.actors.ContextAwareActor">
+      <point x="38.5" y="-16.0" />
+      <point x="158.25" y="323.0" />
+      <point x="164.0" y="323.0" />
+      <point x="164.0" y="154.0" />
+      <point x="308.53618421052636" y="154.0" />
+      <point x="-30.375" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.user.UserActor" target="cn.neucloud.server.actors.rule.RuleManager">
+      <point x="-24.25" y="-16.0" />
+      <point x="632.0" y="487.0" />
+      <point x="626.75" y="487.0" />
+      <point x="30.75" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.rule.RuleManager" target="cn.neucloud.server.actors.rule.RuleActor.ActorCreator">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.rpc.RpcManagerActor" target="cn.neucloud.server.actors.rpc.RpcSessionActor.ActorCreator">
+      <point x="-38.5" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.service.DefaultActorService" target="cn.neucloud.server.actors.rpc.RpcManagerActor.ActorCreator">
+      <point x="-55.0" y="-16.0" />
+      <point x="210.08552631578948" y="487.0" />
+      <point x="119.75" y="487.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.session.SessionActor" target="cn.neucloud.server.actors.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="393.375" y="164.0" />
+      <point x="349.03618421052636" y="164.0" />
+      <point x="10.125" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.session.SessionManagerActor.ActorCreator" target="cn.neucloud.server.actors.session.SessionManagerActor">
+      <point x="-29.25" y="-16.0" />
+      <point x="398.3717105263158" y="405.0" />
+      <point x="383.25" y="405.0" />
+      <point x="-44.75" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.actors.rpc.RpcSessionActor.ActorCreator" target="cn.neucloud.server.actors.rpc.RpcSessionActor">
+      <point x="-29.25" y="-16.0" />
+      <point x="52.75" y="241.0" />
+      <point x="46.25" y="241.0" />
+      <point x="-35.75" y="16.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="357.5" y="354.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

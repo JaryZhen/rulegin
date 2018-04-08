@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>cn.neucloud.server.core.plugins.Plugin</OriginalElement>
+  <nodes>
+    <node x="8.5" y="286.0">cn.neucloud.server.kafka.plugin.KafkaPlugin</node>
+    <node x="287.4660714285714" y="122.0">cn.neucloud.server.core.plugins.PluginAction</node>
+    <node x="310.8705357142857" y="286.0">cn.neucloud.server.kafka.action.KafkaPluginAction</node>
+    <node x="869.8705357142858" y="204.0">cn.neucloud.server.core.filter.BasicJsFilter</node>
+    <node x="152.37053571428572" y="0.0">cn.neucloud.server.common.component.ConfigurableComponent</node>
+    <node x="739.3705357142858" y="286.0">cn.neucloud.server.core.filter.DeviceAttributesFilter</node>
+    <node x="0.0" y="204.0">cn.neucloud.server.core.plugins.handlers.AbstractPlugin</node>
+    <node x="469.1205357142857" y="0.0">cn.neucloud.server.core.rule.RuleLifecycleComponent</node>
+    <node x="27.5" y="122.0">cn.neucloud.server.core.plugins.Plugin</node>
+    <node x="141.4660714285714" y="122.0">cn.neucloud.server.core.rule.RuleProcessor</node>
+    <node x="865.9955357142858" y="122.0">cn.neucloud.server.core.rule.RuleFilter</node>
+    <node x="707.8705357142858" y="204.0">cn.neucloud.server.core.filter.DeviceTypeFilter</node>
+    <node x="1000.8705357142858" y="204.0">cn.neucloud.server.core.filter.MsgTypeFilter</node>
+    <node x="935.3705357142858" y="286.0">cn.neucloud.server.core.filter.DeviceTelemetryFilter</node>
+    <node x="270.8705357142857" y="204.0">cn.neucloud.server.core.action.template.AbstractTemplatePluginAction</node>
+    <node x="528.8705357142858" y="204.0">cn.neucloud.server.core.filter.MethodNameFilter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cn.neucloud.server.core.plugins.PluginAction" target="cn.neucloud.server.core.rule.RuleLifecycleComponent">
+      <point x="30.0" y="-16.0" />
+      <point x="377.4660714285714" y="92.0" />
+      <point x="511.7633928571429" y="92.0" />
+      <point x="-56.85714285714283" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.filter.MethodNameFilter" target="cn.neucloud.server.core.rule.RuleFilter">
+      <point x="39.75" y="-16.0" />
+      <point x="648.1205357142858" y="174.0" />
+      <point x="877.8705357142858" y="174.0" />
+      <point x="-35.625" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.kafka.action.KafkaPluginAction" target="cn.neucloud.server.core.action.template.AbstractTemplatePluginAction">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.rule.RuleProcessor" target="cn.neucloud.server.common.component.ConfigurableComponent">
+      <point x="-31.5" y="-16.0" />
+      <point x="172.9660714285714" y="102.0" />
+      <point x="227.37053571428572" y="102.0" />
+      <point x="-25.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.rule.RuleProcessor" target="cn.neucloud.server.core.rule.RuleLifecycleComponent">
+      <point x="31.5" y="-16.0" />
+      <point x="235.9660714285714" y="82.0" />
+      <point x="483.33482142857144" y="82.0" />
+      <point x="-85.28571428571428" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.plugins.PluginAction" target="cn.neucloud.server.common.component.ConfigurableComponent">
+      <point x="-30.0" y="-16.0" />
+      <point x="317.4660714285714" y="72.0" />
+      <point x="277.3705357142857" y="72.0" />
+      <point x="25.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.filter.MsgTypeFilter" target="cn.neucloud.server.core.rule.RuleFilter">
+      <point x="-31.5" y="-16.0" />
+      <point x="1032.3705357142858" y="184.0" />
+      <point x="949.1205357142858" y="184.0" />
+      <point x="35.625" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.plugins.Plugin" target="cn.neucloud.server.common.component.ConfigurableComponent">
+      <point x="0.0" y="-16.0" />
+      <point x="65.5" y="92.0" />
+      <point x="177.37053571428572" y="92.0" />
+      <point x="-75.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.filter.DeviceTypeFilter" target="cn.neucloud.server.core.rule.RuleLifecycleComponent">
+      <point x="-35.5" y="-16.0" />
+      <point x="743.3705357142858" y="102.0" />
+      <point x="597.0491071428571" y="102.0" />
+      <point x="28.428571428571445" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.filter.MethodNameFilter" target="cn.neucloud.server.core.rule.RuleLifecycleComponent">
+      <point x="-39.75" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.plugins.handlers.AbstractPlugin" target="cn.neucloud.server.core.plugins.Plugin">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.kafka.plugin.KafkaPlugin" target="cn.neucloud.server.core.plugins.handlers.AbstractPlugin">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.action.template.AbstractTemplatePluginAction" target="cn.neucloud.server.core.rule.RuleLifecycleComponent">
+      <point x="59.5" y="-16.0" />
+      <point x="449.3705357142857" y="184.0" />
+      <point x="417.9660714285714" y="184.0" />
+      <point x="417.9660714285714" y="102.0" />
+      <point x="540.1919642857142" y="102.0" />
+      <point x="-28.428571428571445" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.rule.RuleFilter" target="cn.neucloud.server.common.component.ConfigurableComponent">
+      <point x="-23.75" y="-16.0" />
+      <point x="889.7455357142858" y="72.0" />
+      <point x="327.3705357142857" y="72.0" />
+      <point x="75.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.rule.RuleFilter" target="cn.neucloud.server.core.rule.RuleLifecycleComponent">
+      <point x="23.75" y="-16.0" />
+      <point x="937.2455357142858" y="62.0" />
+      <point x="625.4776785714287" y="62.0" />
+      <point x="56.85714285714289" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.filter.MsgTypeFilter" target="cn.neucloud.server.core.rule.RuleLifecycleComponent">
+      <point x="31.499999999999943" y="-16.0" />
+      <point x="1095.3705357142858" y="52.0" />
+      <point x="653.90625" y="52.0" />
+      <point x="85.28571428571422" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.filter.DeviceTypeFilter" target="cn.neucloud.server.core.rule.RuleFilter">
+      <point x="35.5" y="-16.0" />
+      <point x="814.3705357142858" y="184.0" />
+      <point x="901.6205357142858" y="184.0" />
+      <point x="-11.875" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.filter.BasicJsFilter" target="cn.neucloud.server.core.rule.RuleFilter">
+      <point x="0.0" y="-16.0" />
+      <point x="11.875" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.filter.DeviceAttributesFilter" target="cn.neucloud.server.core.filter.BasicJsFilter">
+      <point x="0.0" y="-16.0" />
+      <point x="827.3705357142858" y="261.0" />
+      <point x="897.6205357142858" y="261.0" />
+      <point x="-27.75" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.filter.DeviceTelemetryFilter" target="cn.neucloud.server.core.filter.BasicJsFilter">
+      <point x="0.0" y="-16.0" />
+      <point x="1023.3705357142858" y="261.0" />
+      <point x="953.1205357142858" y="261.0" />
+      <point x="27.75" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.action.template.AbstractTemplatePluginAction" target="cn.neucloud.server.core.plugins.PluginAction">
+      <point x="-59.5" y="-16.0" />
+      <point x="330.3705357142857" y="184.0" />
+      <point x="347.4660714285714" y="184.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="563.5" y="159.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

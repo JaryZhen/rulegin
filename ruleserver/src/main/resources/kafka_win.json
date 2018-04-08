@@ -1,0 +1,35 @@
+{
+  "name": "in-press-alarm",
+  "weight": 0,
+  "dataSource": {
+    "type": "kafka",
+	"configuration": {
+		"topic": "aliyun-iot-YWYfetAm9Wh",
+		"format": "null",
+        "keys": [
+         "Suct_Pres_Status"
+        ]
+    }
+  },
+  "filters": [
+    {
+      "name": "吸气压力断线",
+      "type": "kafkaWindow",
+	  "configuration": {
+	  "size":2000,
+	  "step":1000
+	  },
+      "condition": "Sum(Suct_Pres_Status) > 70"
+    }
+  ],
+  "actions": [
+    {
+      "type": "email",
+      "address": [
+        "wenny.wang@neucloud.cn"
+      ],
+      "level": "1",
+      "template": "吸气温度高"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>cn.neucloud.server.common.data.id.AlarmId</OriginalElement>
+  <nodes>
+    <node x="650.4583333333334" y="254.0">cn.neucloud.server.common.data.id.EventId</node>
+    <node x="259.875" y="82.0">cn.neucloud.server.common.data.id.EntityId</node>
+    <node x="555.4583333333334" y="254.0">cn.neucloud.server.common.data.id.RuleId</node>
+    <node x="445.45833333333337" y="254.0">cn.neucloud.server.common.data.id.DeviceId</node>
+    <node x="586.4583333333334" y="82.0">cn.neucloud.server.common.data.id.SessionId</node>
+    <node x="129.0" y="254.0">cn.neucloud.server.common.data.id.AlarmId</node>
+    <node x="552.2083333333334" y="0.0">java.io.Serializable</node>
+    <node x="459.45833333333337" y="82.0">cn.neucloud.server.common.data.id.UUIDBased</node>
+    <node x="752.4583333333334" y="254.0">cn.neucloud.server.common.data.id.ComponentDescriptorId</node>
+    <node x="455.70833333333337" y="0.0">lombok.extern.slf4j.Slf4j</node>
+    <node x="315.625" y="0.0">com.fasterxml.jackson.databind.annotation.JsonSerialize</node>
+    <node x="966.4583333333333" y="254.0">cn.neucloud.server.common.data.id.NodeId</node>
+    <node x="234.0" y="254.0">cn.neucloud.server.common.data.id.UserId</node>
+    <node x="0.0" y="254.0">cn.neucloud.server.common.data.id.CustomerId</node>
+    <node x="328.0" y="254.0">cn.neucloud.server.common.data.id.PluginId</node>
+    <node x="160.62499999999994" y="0.0">com.fasterxml.jackson.databind.annotation.JsonDeserialize</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cn.neucloud.server.common.data.id.PluginId" target="cn.neucloud.server.common.data.id.UUIDBased">
+      <point x="22.25" y="-16.0" />
+      <point x="394.75" y="234.0" />
+      <point x="501.06944444444446" y="234.0" />
+      <point x="-11.888888888888914" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.CustomerId" target="cn.neucloud.server.common.data.id.EntityId">
+      <point x="-27.25" y="-16.0" />
+      <point x="27.25" y="174.0" />
+      <point x="266.79166666666663" y="174.0" />
+      <point x="-34.583333333333314" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.UserId" target="cn.neucloud.server.common.data.id.EntityId">
+      <point x="-18.5" y="-16.0" />
+      <point x="252.5" y="194.0" />
+      <point x="294.45833333333326" y="194.0" />
+      <point x="-6.916666666666686" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.UUIDBased" target="java.io.Serializable">
+      <point x="26.75" y="-16.0" />
+      <point x="539.7083333333334" y="57.0" />
+      <point x="579.4583333333334" y="57.0" />
+      <point x="-27.25" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.SessionId" target="java.io.Serializable">
+      <point x="0.0" y="-16.0" />
+      <point x="27.25" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.ComponentDescriptorId" target="cn.neucloud.server.common.data.id.UUIDBased">
+      <point x="0.0" y="-16.0" />
+      <point x="849.4583333333334" y="144.0" />
+      <point x="548.625" y="144.0" />
+      <point x="35.66666666666663" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.UUIDBased" target="lombok.extern.slf4j.Slf4j">
+      <point x="-26.75" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.UserId" target="cn.neucloud.server.common.data.id.UUIDBased">
+      <point x="18.5" y="-16.0" />
+      <point x="289.5" y="224.0" />
+      <point x="489.18055555555554" y="224.0" />
+      <point x="-23.77777777777777" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.EntityId" target="com.fasterxml.jackson.databind.annotation.JsonSerialize">
+      <point x="20.75" y="-16.0" />
+      <point x="322.125" y="57.0" />
+      <point x="374.625" y="57.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.NodeId" target="cn.neucloud.server.common.data.id.UUIDBased">
+      <point x="0.0" y="-16.0" />
+      <point x="1007.4583333333333" y="134.0" />
+      <point x="560.5138888888889" y="134.0" />
+      <point x="47.55555555555554" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.DeviceId" target="cn.neucloud.server.common.data.id.UUIDBased">
+      <point x="22.5" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.RuleId" target="cn.neucloud.server.common.data.id.UUIDBased">
+      <point x="18.75" y="-16.0" />
+      <point x="611.7083333333334" y="164.0" />
+      <point x="524.8472222222223" y="164.0" />
+      <point x="11.888888888888914" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.EventId" target="cn.neucloud.server.common.data.id.UUIDBased">
+      <point x="0.0" y="-16.0" />
+      <point x="691.4583333333334" y="154.0" />
+      <point x="536.7361111111111" y="154.0" />
+      <point x="23.777777777777715" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.AlarmId" target="cn.neucloud.server.common.data.id.UUIDBased">
+      <point x="21.25" y="-16.0" />
+      <point x="192.75" y="214.0" />
+      <point x="477.29166666666663" y="214.0" />
+      <point x="-35.666666666666686" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.CustomerId" target="cn.neucloud.server.common.data.id.UUIDBased">
+      <point x="27.25" y="-16.0" />
+      <point x="81.75" y="204.0" />
+      <point x="465.4027777777778" y="204.0" />
+      <point x="-47.55555555555554" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.DeviceId" target="cn.neucloud.server.common.data.id.EntityId">
+      <point x="-22.5" y="-16.0" />
+      <point x="467.95833333333337" y="184.0" />
+      <point x="322.125" y="184.0" />
+      <point x="20.75" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.PluginId" target="cn.neucloud.server.common.data.id.EntityId">
+      <point x="-22.25" y="-16.0" />
+      <point x="350.25" y="194.0" />
+      <point x="308.29166666666663" y="194.0" />
+      <point x="6.916666666666686" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.RuleId" target="cn.neucloud.server.common.data.id.EntityId">
+      <point x="-18.75" y="-16.0" />
+      <point x="574.2083333333334" y="174.0" />
+      <point x="335.95833333333337" y="174.0" />
+      <point x="34.58333333333337" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.EntityId" target="com.fasterxml.jackson.databind.annotation.JsonDeserialize">
+      <point x="-20.75" y="-16.0" />
+      <point x="280.625" y="57.0" />
+      <point x="228.12499999999994" y="57.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.id.AlarmId" target="cn.neucloud.server.common.data.id.EntityId">
+      <point x="-21.25" y="-16.0" />
+      <point x="150.25" y="184.0" />
+      <point x="280.625" y="184.0" />
+      <point x="-20.75" y="16.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="523.0" y="305.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

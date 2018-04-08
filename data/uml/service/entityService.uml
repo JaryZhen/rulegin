@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>cn.neucloud.server.dao.rule.BaseRuleService</OriginalElement>
+  <nodes>
+    <node x="174.0" y="82.0">cn.neucloud.server.dao.user.UserServiceImpl</node>
+    <node x="0.0" y="82.0">cn.neucloud.server.dao.plugin.BasePluginService</node>
+    <node x="674.0" y="82.0">cn.neucloud.server.dao.rule.BaseRuleService</node>
+    <node x="724.5" y="0.0">cn.neucloud.server.dao.rule.RuleService</node>
+    <node x="506.0" y="82.0">cn.neucloud.server.dao.entity.BaseEntityService</node>
+    <node x="323.0" y="0.0">cn.neucloud.server.dao.entity.AbstractEntityService</node>
+    <node x="332.0" y="82.0">cn.neucloud.server.dao.device.DeviceServiceImpl</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cn.neucloud.server.dao.rule.BaseRuleService" target="cn.neucloud.server.dao.entity.AbstractEntityService">
+      <point x="-35.0" y="-16.0" />
+      <point x="709.0" y="52.0" />
+      <point x="477.8" y="52.0" />
+      <point x="68.80000000000001" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.dao.user.UserServiceImpl" target="cn.neucloud.server.dao.entity.AbstractEntityService">
+      <point x="0.0" y="-16.0" />
+      <point x="243.0" y="62.0" />
+      <point x="374.6" y="62.0" />
+      <point x="-34.39999999999998" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.dao.rule.BaseRuleService" target="cn.neucloud.server.dao.rule.RuleService">
+      <point x="35.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.dao.device.DeviceServiceImpl" target="cn.neucloud.server.dao.entity.AbstractEntityService">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.dao.plugin.BasePluginService" target="cn.neucloud.server.dao.entity.AbstractEntityService">
+      <point x="0.0" y="-16.0" />
+      <point x="77.0" y="52.0" />
+      <point x="340.2" y="52.0" />
+      <point x="-68.80000000000001" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.dao.entity.BaseEntityService" target="cn.neucloud.server.dao.entity.AbstractEntityService">
+      <point x="0.0" y="-16.0" />
+      <point x="580.0" y="62.0" />
+      <point x="443.40000000000003" y="62.0" />
+      <point x="34.400000000000034" y="16.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="205.5" y="98.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

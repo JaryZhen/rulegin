@@ -1,0 +1,28 @@
+<assembly>
+    <id>assembly</id>
+    <formats>
+        <!--format设置包输出的格式，当前格式设置的为tar.gz格式，目前还支持zip，tar，tar.gz，tar.bz2，jar，dir，war格式  -->
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <fileSets>
+        <!--fileSet定义代码目录中与输出目录的映射-->
+        <fileSet>
+            <directory>${project.build.directory}/bin</directory>
+            <outputDirectory>bin</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>${project.build.directory}/conf</directory>
+            <outputDirectory>conf</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+    </fileSets>
+    <!--dependencySets节点下为依赖设置-->
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+        </dependencySet>
+    </dependencySets>
+</assembly>

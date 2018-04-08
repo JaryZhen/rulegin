@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>cn.neucloud.server.common.data.plugin.PluginMetaData</OriginalElement>
+  <nodes>
+    <node x="420.8557692307692" y="368.0">cn.neucloud.server.common.actor.service.sercurity.SecurityUser</node>
+    <node x="528.3557692307693" y="286.0">cn.neucloud.server.common.data.plugin.PluginMetaData</node>
+    <node x="691.3557692307693" y="286.0">cn.neucloud.server.common.data.component.ComponentDescriptor</node>
+    <node x="450.9519230769231" y="82.0">cn.neucloud.server.common.data.BaseData</node>
+    <node x="0.0" y="164.0">lombok.EqualsAndHashCode</node>
+    <node x="414.8557692307692" y="0.0">java.io.Serializable</node>
+    <node x="308.9519230769231" y="164.0">cn.neucloud.server.common.data.HasName</node>
+    <node x="144.625" y="286.0">cn.neucloud.server.common.data.rule.RuleMetaData</node>
+    <node x="447.3557692307692" y="286.0">cn.neucloud.server.common.data.User</node>
+    <node x="193.0" y="164.0">lombok.Data</node>
+    <node x="543.8557692307693" y="0.0">cn.neucloud.server.common.data.IdBased</node>
+    <node x="425.9519230769231" y="164.0">cn.neucloud.server.common.data.SearchTextBased</node>
+    <node x="320.7307692307692" y="286.0">cn.neucloud.server.common.data.Device</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cn.neucloud.server.common.data.BaseData" target="java.io.Serializable">
+      <point x="-23.75" y="-16.0" />
+      <point x="474.7019230769231" y="57.0" />
+      <point x="469.3557692307692" y="57.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.component.ComponentDescriptor" target="cn.neucloud.server.common.data.SearchTextBased">
+      <point x="0.0" y="-16.0" />
+      <point x="781.8557692307693" y="216.0" />
+      <point x="556.4519230769231" y="216.0" />
+      <point x="58.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.BaseData" target="cn.neucloud.server.common.data.IdBased">
+      <point x="23.75" y="-16.0" />
+      <point x="522.2019230769231" y="57.0" />
+      <point x="586.3557692307693" y="57.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.actor.service.sercurity.SecurityUser" target="cn.neucloud.server.common.data.User">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.rule.RuleMetaData" target="cn.neucloud.server.common.data.SearchTextBased">
+      <point x="48.375" y="-16.0" />
+      <point x="257.5" y="256.0" />
+      <point x="440.4519230769231" y="256.0" />
+      <point x="-58.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.SearchTextBased" target="cn.neucloud.server.common.data.BaseData">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.rule.RuleMetaData" target="lombok.Data">
+      <point x="-16.125" y="-16.0" />
+      <point x="193.0" y="236.0" />
+      <point x="225.0" y="236.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.Device" target="cn.neucloud.server.common.data.SearchTextBased">
+      <point x="19.25" y="-16.0" />
+      <point x="378.4807692307692" y="266.0" />
+      <point x="469.4519230769231" y="266.0" />
+      <point x="-29.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.plugin.PluginMetaData" target="cn.neucloud.server.common.data.SearchTextBased">
+      <point x="35.75" y="-16.0" />
+      <point x="635.6057692307693" y="226.0" />
+      <point x="527.4519230769231" y="226.0" />
+      <point x="29.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.Device" target="cn.neucloud.server.common.data.HasName">
+      <point x="-19.25" y="-16.0" />
+      <point x="339.9807692307692" y="246.0" />
+      <point x="345.3269230769231" y="246.0" />
+      <point x="-12.125" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.User" target="cn.neucloud.server.common.data.SearchTextBased">
+      <point x="15.25" y="-16.0" />
+      <point x="493.1057692307692" y="266.0" />
+      <point x="498.4519230769231" y="266.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.rule.RuleMetaData" target="cn.neucloud.server.common.data.HasName">
+      <point x="16.125" y="-16.0" />
+      <point x="225.25" y="246.0" />
+      <point x="321.0769230769231" y="246.0" />
+      <point x="-36.375" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.plugin.PluginMetaData" target="cn.neucloud.server.common.data.HasName">
+      <point x="-35.75" y="-16.0" />
+      <point x="564.1057692307693" y="236.0" />
+      <point x="393.8269230769231" y="236.0" />
+      <point x="36.375" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.rule.RuleMetaData" target="lombok.EqualsAndHashCode">
+      <point x="-48.375" y="-16.0" />
+      <point x="160.75" y="266.0" />
+      <point x="86.5" y="266.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.common.data.User" target="cn.neucloud.server.common.data.HasName">
+      <point x="-15.25" y="-16.0" />
+      <point x="462.6057692307692" y="246.0" />
+      <point x="369.5769230769231" y="246.0" />
+      <point x="12.125" y="16.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="436.5" y="200.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

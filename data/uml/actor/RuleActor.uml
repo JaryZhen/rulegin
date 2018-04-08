@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="205.5" y="184.0">cn.neucloud.server.core.actor.stats.StatsActor</node>
+    <node x="604.5" y="184.0">cn.neucloud.server.core.actor.rpc.RpcManagerActor</node>
+    <node x="916.5" y="184.0">cn.neucloud.server.core.actor.session.SessionManagerActor</node>
+    <node x="528.0" y="82.0">cn.neucloud.server.core.actor.ContextAwareActor</node>
+    <node x="325.5" y="184.0">cn.neucloud.server.core.actor.rpc.RpcSessionActor</node>
+    <node x="488.5" y="184.0">cn.neucloud.server.core.actor.app.AppActor</node>
+    <node x="0.0" y="266.0">cn.neucloud.server.core.actor.rule.RuleActor</node>
+    <node x="37.5" y="184.0">cn.neucloud.server.core.actor.service.ComponentActor</node>
+    <node x="1115.5" y="184.0">cn.neucloud.server.core.actor.user.UserActor</node>
+    <node x="118.0" y="266.0">cn.neucloud.server.core.actor.plugin.PluginActor</node>
+    <node x="546.5" y="0.0">akka.actor.UntypedActor</node>
+    <node x="778.5" y="184.0">cn.neucloud.server.core.actor.session.SessionActor</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cn.neucloud.server.core.actor.app.AppActor" target="cn.neucloud.server.core.actor.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="536.5" y="164.0" />
+      <point x="598.875" y="164.0" />
+      <point x="-10.125" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.ContextAwareActor" target="akka.actor.UntypedActor">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.service.ComponentActor" target="cn.neucloud.server.core.actor.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="111.5" y="134.0" />
+      <point x="538.125" y="134.0" />
+      <point x="-70.875" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.user.UserActor" target="cn.neucloud.server.core.actor.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="1164.0" y="134.0" />
+      <point x="679.875" y="134.0" />
+      <point x="70.875" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.rpc.RpcSessionActor" target="cn.neucloud.server.core.actor.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="397.0" y="154.0" />
+      <point x="578.625" y="154.0" />
+      <point x="-30.375" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.plugin.PluginActor" target="cn.neucloud.server.core.actor.service.ComponentActor">
+      <point x="0.0" y="-16.0" />
+      <point x="174.0" y="241.0" />
+      <point x="148.5" y="241.0" />
+      <point x="37.0" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.session.SessionManagerActor" target="cn.neucloud.server.core.actor.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="1006.0" y="144.0" />
+      <point x="659.625" y="144.0" />
+      <point x="50.625" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.session.SessionActor" target="cn.neucloud.server.core.actor.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="837.5" y="154.0" />
+      <point x="639.375" y="154.0" />
+      <point x="30.375" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.rpc.RpcManagerActor" target="cn.neucloud.server.core.actor.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="681.5" y="164.0" />
+      <point x="619.125" y="164.0" />
+      <point x="10.125" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.stats.StatsActor" target="cn.neucloud.server.core.actor.ContextAwareActor">
+      <point x="0.0" y="-16.0" />
+      <point x="255.5" y="144.0" />
+      <point x="558.375" y="144.0" />
+      <point x="-50.625" y="16.0" />
+    </edge>
+    <edge source="cn.neucloud.server.core.actor.rule.RuleActor" target="cn.neucloud.server.core.actor.service.ComponentActor">
+      <point x="0.0" y="-16.0" />
+      <point x="49.0" y="241.0" />
+      <point x="74.5" y="241.0" />
+      <point x="-37.0" y="16.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="610.0" y="149.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
