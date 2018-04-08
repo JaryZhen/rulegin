@@ -8,7 +8,6 @@
     <version>0.1-SNAPSHOT</version>
     <modules>
         <module>ruleserver</module>
-        <module>rulemanger</module>
     </modules>
     <packaging>pom</packaging>
 
