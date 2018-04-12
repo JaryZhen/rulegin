@@ -28,7 +28,7 @@ spring:
       database-platform: "${SPRING_JPA_DATABASE_PLATFORM:org.hibernate.dialect.HSQLDialect}"
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://172.24.4.215:5432/neurule?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:postgresql://172.24.4.215:5432/rulegin?useUnicode=true&characterEncoding=utf-8
     username: pgxl
     password: pgxl
     #    关闭模板引擎的页面，用于热部署。不可用的情况如下：
@@ -74,7 +74,7 @@ cluster:
 # Plugins configuration parameters
 plugins:
   # Comma seperated package list used during classpath scanning for plugins
-  scan_packages: "${PLUGINS_SCAN_PACKAGES:cn.neucloud.server.core.datasource.processor}"
+  scan_packages: "${PLUGINS_SCAN_PACKAGES:tb.rulegin.server.core.datasource.processor}"
 
 # Actor system parameters
 actors:

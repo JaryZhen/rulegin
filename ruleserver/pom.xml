@@ -416,7 +416,7 @@
                 </dependencies>
 
                 <configuration>
-                    <mainClass>cn.neucloud.server.Application</mainClass>
+                    <mainClass>tb.rulegin.server.Application</mainClass>
                     <classifier>boot</classifier>
                     <layout>ZIP</layout>
                     <executable>true</executable>
