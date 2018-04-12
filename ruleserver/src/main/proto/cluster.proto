@@ -2,7 +2,7 @@
 syntax = "proto3";
 package cluster;
 
-option java_package = "org.neurule.server.gen.cluster";
+option java_package = "tb.rulegin.server.gen.cluster";
 option java_outer_classname = "ClusterAPIProtos";
 
 message ServerAddress {

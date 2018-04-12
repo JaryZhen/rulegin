@@ -2,7 +2,7 @@
 syntax = "proto3";
 package discovery;
 
-option java_package = "org.neurule.server.gen.discovery";
+option java_package = "tb.rulegin.server.gen.discovery";
 option java_outer_classname = "ServerInstanceProtos";
 
 message ServerInfo {
