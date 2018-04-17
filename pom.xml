@@ -31,7 +31,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-    <repositories>
+    <!--<repositories>
         <repository>
             <id>nexus</id>
             <url>http://172.24.4.180:8081/repository/maven-public/</url>
@@ -42,6 +42,6 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    </repositories>
+    </repositories>-->
 
 </project>
