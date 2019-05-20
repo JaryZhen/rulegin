@@ -1,0 +1,57 @@
+
+syntax = "proto3";
+package cluster;
+
+option java_package = "com.github.rulegin.server.gen.cluster";
+option java_outer_classname = "ClusterAPIProtos";
+
+message ServerAddress {
+  string host = 1;
+  int32 port = 2;
+}
+
+message Uid {
+  sint64 pluginUuidMsb = 1;
+  sint64 pluginUuidLsb = 2;
+}
+
+message PluginAddress {
+  Uid pluginId = 1;
+  Uid tenantId = 2;
+}
+
+message ToPluginRpcMessage {
+  PluginAddress address = 1;
+  int32 clazz = 2;
+  bytes data = 3;
+}
+
+message ToAllNodesRpcMessage {
+  bytes data = 1;
+}
+
+message ConnectRpcMessage {
+  ServerAddress serverAddress = 1;
+}
+
+message ToPluginRpcResponseRpcMessage {
+  PluginAddress address = 1;
+
+  Uid msgId = 2;
+  string response = 3;
+  string error = 4;
+}
+
+message ToRpcServerMessage {
+  ConnectRpcMessage connectMsg = 1;
+  ToPluginRpcMessage toPluginRpcMsg = 2;
+
+  ToAllNodesRpcMessage toAllNodesRpcMsg = 6;
+
+  ToPluginRpcResponseRpcMessage toPluginRpcResponseRpcMsg = 8;
+}
+
+service ClusterRpcService {
+  rpc handlePluginMsgs(stream ToRpcServerMessage) returns (stream ToRpcServerMessage) {}
+}
+

@@ -1,6 +1,6 @@
 target
 .mvn
-src/main/java/cn/neucloud/server/Test/*
+src/main/java/com/github/rulegin/Test/*
 logs
 work
 ### STS ###

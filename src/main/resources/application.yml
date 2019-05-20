@@ -1,0 +1,101 @@
+
+# Server settings (ServerProperties)
+server:
+  port: 8080
+  address: 127.0.0.1
+  sessionTimeout: 30
+  contextPath: /
+
+  # Tomcat specifics
+  tomcat:
+    accessLogEnabled: false
+    protocolHeader: x-forwarded-proto
+    remoteIpHeader: x-forwarded-for
+    basedir:
+    backgroundProcessorDelay: 30 # secs
+
+
+spring:
+  # jpa:
+  # properties.hibernate.hbm2ddl.auto: update
+  data:
+    jpa:
+      repositories:
+        enabled: "true"
+  jpa:
+    hibernate:
+      ddl-auto: "update" #create  create-drop validate update
+      database-platform: "${SPRING_JPA_DATABASE_PLATFORM:org.hibernate.dialect.HSQLDialect}"
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?useUnicode=true&characterEncoding=utf-8
+    username: postgres
+    password: 000000
+    #    关闭模板引擎的页面，用于热部署。不可用的情况如下：
+    #1：对于一些第三方框架的注解的修改，不能自动加载，比如：spring mvc的@RequestMapping
+    #2：application.properties的修改也不行
+    #3：log4j的配置文件的修改不能即时生效
+  freemarker.cache: false
+  thymeleaf.cache: false
+  velocity.cache: false
+
+application:
+  name: sb-ms-custdepl
+  version: 0.1-CUSTOMER
+  metrics:
+    dbExecutionTimeKey: user.get.db.time
+zk:
+  # Enable/disable zookeeper discovery service.
+  enabled: "${ZOOKEEPER_ENABLED:false}"
+  # Zookeeper connect string
+  url: "${ZOOKEEPER_URL:kafka1:2222}"
+  # Zookeeper retry interval in milliseconds
+  retry_interval_ms: "${ZOOKEEPER_RETRY_INTERVAL_MS:3000}"
+  # Zookeeper connection timeout in milliseconds
+  connection_timeout_ms: "${ZOOKEEPER_CONNECTION_TIMEOUT_MS:3000}"
+  # Zookeeper session timeout in milliseconds
+  session_timeout_ms: "${ZOOKEEPER_SESSION_TIMEOUT_MS:3000}"
+  # Name of the directory in zookeeper 'filesystem'
+  zk_dir: "${ZOOKEEPER_NODES_DIR:jaryzhen}"
+
+# RPC connection parameters. Used only in run mode only.
+rpc:
+  bind_host: "${RPC_HOST:localhost}"
+  bind_port: "${RPC_PORT:9001}"
+
+
+# Clustering properties related to consistent-hashing. See architecture docs for more details.
+cluster:
+  # Name of hash function used for consistent hash ring.
+  hash_function_name: "${CLUSTER_HASH_FUNCTION_NAME:murmur3_128}"
+  # Amount of virtual nodes in consistent hash ring.
+  vitrual_nodes_size: "${CLUSTER_VIRTUAL_NODES_SIZE:16}"
+
+# Plugins configuration parameters
+plugins:
+  # Comma seperated package list used during classpath scanning for plugins
+  scan_packages: "${PLUGINS_SCAN_PACKAGES:tb.rulegin.server.core.datasource.processor}"
+
+# Actor system parameters
+actors:
+  session:
+    sync:
+      # Default timeout for processing request using synchronous session (HTTP, CoAP) in milliseconds
+      timeout: "${ACTORS_SESSION_SYNC_TIMEOUT:10000}"
+  plugin:
+    # Default timeout for termination of the plugin actors after it is stopped
+    termination.delay: "${ACTORS_PLUGIN_TERMINATION_DELAY:60000}"
+    # Default timeout for processing of particular message by particular plugin
+    processing.timeout: "${ACTORS_PLUGIN_TIMEOUT:60000}"
+    # Errors for particular actors are persisted once per specified amount of milliseconds
+    error_persist_frequency: "${ACTORS_PLUGIN_ERROR_FREQUENCY:3000}"
+  rule:
+    # Default timeout for termination of the Rule actors after it is stopped
+    termination.delay: "${ACTORS_RULE_TERMINATION_DELAY:30000}"
+    # Errors for particular actors are persisted once per specified amount of milliseconds
+    error_persist_frequency: "${ACTORS_RULE_ERROR_FREQUENCY:3000}"
+  statistics:
+    # Enable/disable actors statistics
+    enabled: "${ACTORS_STATISTICS_ENABLED:true}"
+    persist_frequency: "${ACTORS_STATISTICS_PERSIST_FREQUENCY:3600000}"
+

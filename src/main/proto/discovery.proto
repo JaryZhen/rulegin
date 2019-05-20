@@ -1,0 +1,12 @@
+
+syntax = "proto3";
+package discovery;
+
+option java_package = "com.github.rulegin.server.gen.discovery";
+option java_outer_classname = "ServerInstanceProtos";
+
+message ServerInfo {
+  string host = 1;
+  int32 port = 2;
+  int64 ts = 3;
+}
