@@ -58,7 +58,7 @@ public class JpaBaseComponentDescriptorDao extends JpaAbstractSearchTextDao<Comp
         if (component.getId() == null) {
             component.setId(new ComponentDescriptorId(UUIDs.timeBased()));
         }
-        if (componentDescriptorRepository.findOne(UUIDConverter.fromTimeUUID(component.getId().getId())) == null) {
+        if (componentDescriptorRepository.findById(UUIDConverter.fromTimeUUID(component.getId().getId())).orElse(null) == null) {
             return Optional.of(save(component));
         }
         return Optional.empty();
@@ -81,7 +81,7 @@ public class JpaBaseComponentDescriptorDao extends JpaAbstractSearchTextDao<Comp
                         type,
                         Objects.toString(pageLink.getTextSearch(), ""),
                         pageLink.getIdOffset() == null ? ModelConstants.NULL_UUID_STR : UUIDConverter.fromTimeUUID(pageLink.getIdOffset()),
-                        new PageRequest(0, pageLink.getLimit())));
+                        PageRequest.of(0, pageLink.getLimit())));
     }
 
     @Override
@@ -92,7 +92,7 @@ public class JpaBaseComponentDescriptorDao extends JpaAbstractSearchTextDao<Comp
                         scope,
                         Objects.toString(pageLink.getTextSearch(), ""),
                         pageLink.getIdOffset() == null ? ModelConstants.NULL_UUID_STR : UUIDConverter.fromTimeUUID(pageLink.getIdOffset()),
-                        new PageRequest(0, pageLink.getLimit())));
+                        PageRequest.of(0, pageLink.getLimit())));
     }
 
     @Override

@@ -32,7 +32,7 @@ public interface RuleMetaDataRepository extends CrudRepository<RuleMetaDataEntit
 
                                                               */
 
-    @Override
-    RuleMetaDataEntity findOne(String s);
+/*    @Override
+    RuleMetaDataEntity find(String s);*/
 
 }

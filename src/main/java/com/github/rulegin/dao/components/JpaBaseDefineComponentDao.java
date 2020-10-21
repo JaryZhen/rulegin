@@ -1,18 +1,3 @@
-/**
- * Copyright © 2016-2017 The Thingsboard Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.github.rulegin.dao.components;
 
 import com.github.rulegin.common.data.UUIDConverter;
@@ -42,7 +27,7 @@ public class JpaBaseDefineComponentDao extends JpaAbstractSearchTextDao<DefineCo
         implements DefineComponentDao {
 
     @Autowired
-    private DefineComponentRepository repository;
+    private DefineComponentRepository comRepository;
 
     @Override
     protected Class<DefineComponentEntity> getEntityClass() {
@@ -51,7 +36,7 @@ public class JpaBaseDefineComponentDao extends JpaAbstractSearchTextDao<DefineCo
 
     @Override
     protected CrudRepository<DefineComponentEntity, String> getCrudRepository() {
-        return repository;
+        return comRepository;
     }
 
     @Override
@@ -59,7 +44,7 @@ public class JpaBaseDefineComponentDao extends JpaAbstractSearchTextDao<DefineCo
         if (component.getId() == null) {
             component.setId(new ComponentDescriptorId(UUIDs.timeBased()));
         }
-        if (repository.findOne(UUIDConverter.fromTimeUUID(component.getId().getId())) == null) {
+        if (comRepository.findById(UUIDConverter.fromTimeUUID(component.getId().getId())).orElse(null) == null) {
             return Optional.of(save(component));
         }
         return Optional.empty();
@@ -72,33 +57,33 @@ public class JpaBaseDefineComponentDao extends JpaAbstractSearchTextDao<DefineCo
 
     @Override
     public DefineComponent findByClazz(String clazz) {
-        return DaoUtil.getData(repository.findByClazz(clazz));
+        return DaoUtil.getData(comRepository.findByClazz(clazz));
     }
 
     @Override
     public DefineComponent findByDataSourceTypeAndFiltersType(String data, String filter) {
-        return DaoUtil.getData(repository.findByDataSourceTypeAndFiltersType(data,filter));
+        return DaoUtil.getData(comRepository.findByDataSourceTypeAndFiltersType(data,filter));
     }
 
     @Override
     public List<DefineComponent> findByTypeAndPageLink(ComponentType type, TextPageLink pageLink) {
-        return DaoUtil.convertDataList(repository
+        return DaoUtil.convertDataList(comRepository
                 .findByType(
                         type,
                         Objects.toString(pageLink.getTextSearch(), ""),
                         pageLink.getIdOffset() == null ? ModelConstants.NULL_UUID_STR : UUIDConverter.fromTimeUUID(pageLink.getIdOffset()),
-                        new PageRequest(0, pageLink.getLimit())));
+                        PageRequest.of(0, pageLink.getLimit())));
     }
 
     @Override
     public List<DefineComponent> findByScopeAndTypeAndPageLink(ComponentScope scope, ComponentType type, TextPageLink pageLink) {
-        return DaoUtil.convertDataList(repository
+        return DaoUtil.convertDataList(comRepository
                 .findByScopeAndType(
                         type,
                         scope,
                         Objects.toString(pageLink.getTextSearch(), ""),
                         pageLink.getIdOffset() == null ? ModelConstants.NULL_UUID_STR : UUIDConverter.fromTimeUUID(pageLink.getIdOffset()),
-                        new PageRequest(0, pageLink.getLimit())));
+                        PageRequest.of(0, pageLink.getLimit())));
     }
 
     @Override
@@ -110,6 +95,6 @@ public class JpaBaseDefineComponentDao extends JpaAbstractSearchTextDao<DefineCo
     @Override
     @Transactional
     public void deleteByClazz(String clazz) {
-        repository.deleteByClazz(clazz);
+        comRepository.deleteByClazz(clazz);
     }
 }

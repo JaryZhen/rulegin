@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
-@SpringBootApplication()
-@ComponentScan({"com.github.rulegin"})
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.github.rulegin"})
 public class Application {
 
     public static void main(String[] args) {
