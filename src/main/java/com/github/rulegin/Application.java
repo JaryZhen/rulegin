@@ -28,7 +28,7 @@ public class Application {
         dataSource.setUrl(env.getProperty("spring.datasource.url"));
         dataSource.setUsername(env.getProperty("spring.datasource.username"));
         dataSource.setPassword(env.getProperty("spring.datasource.password"));
-        dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
+        dataSource.setDriverClassName(env.getProperty("spring.datasource.driverClassName"));
         dataSource.setInitialSize(2);
         dataSource.setMaxActive(20);
         dataSource.setMinIdle(0);

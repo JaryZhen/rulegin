@@ -27,10 +27,10 @@ spring:
       ddl-auto: "update" #create  create-drop validate update
       database-platform: "${SPRING_JPA_DATABASE_PLATFORM:org.hibernate.dialect.HSQLDialect}"
   datasource:
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres?useUnicode=true&characterEncoding=utf-8
-    username: postgres
-    password: 000000
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/rulegin?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password:
     #    关闭模板引擎的页面，用于热部署。不可用的情况如下：
     #1：对于一些第三方框架的注解的修改，不能自动加载，比如：spring mvc的@RequestMapping
     #2：application.properties的修改也不行
