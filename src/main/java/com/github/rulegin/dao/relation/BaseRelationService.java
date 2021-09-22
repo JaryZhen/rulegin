@@ -15,6 +15,8 @@ import org.springframework.util.StringUtils;
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ForkJoinPool;
 import java.util.function.BiConsumer;
 
 /**
@@ -30,6 +32,7 @@ public class BaseRelationService implements RelationService {
     @Autowired
     private EntityService entityService;
 
+    Executor executor = new ForkJoinPool();
     @Override
     public ListenableFuture<Boolean> checkRelation(EntityId from, EntityId to, String relationType, RelationTypeGroup typeGroup) {
         log.trace("Executing checkRelation [{}][{}][{}][{}]", from, to, relationType, typeGroup);
@@ -74,7 +77,7 @@ public class BaseRelationService implements RelationService {
             inboundRelationsList.add(relationDao.findAllByTo(entity, typeGroup));
         }
         ListenableFuture<List<List<EntityRelation>>> inboundRelations = Futures.allAsList(inboundRelationsList);
-        ListenableFuture<List<Boolean>> inboundDeletions = Futures.transform(inboundRelations, new AsyncFunction<List<List<EntityRelation>>, List<Boolean>>() {
+        ListenableFuture<List<Boolean>> inboundDeletions = Futures.transformAsync(inboundRelations, new AsyncFunction<List<List<EntityRelation>>, List<Boolean>>() {
             @Override
             public ListenableFuture<List<Boolean>> apply(List<List<EntityRelation>> relations) throws Exception {
                 List<ListenableFuture<Boolean>> results = new ArrayList<>();
@@ -83,13 +86,13 @@ public class BaseRelationService implements RelationService {
                 }
                 return Futures.allAsList(results);
             }
-        });
+        }, executor);
 
-        ListenableFuture<Boolean> inboundFuture = Futures.transform(inboundDeletions, getListToBooleanFunction());
+        ListenableFuture<Boolean> inboundFuture = Futures.transformAsync(inboundDeletions, getListToBooleanFunction(), executor);
 
         ListenableFuture<Boolean> outboundFuture = relationDao.deleteOutboundRelations(entity);
 
-        return Futures.transform(Futures.allAsList(Arrays.asList(inboundFuture, outboundFuture)), getListToBooleanFunction());
+        return Futures.transformAsync(Futures.allAsList(Arrays.asList(inboundFuture, outboundFuture)), getListToBooleanFunction(), executor);
     }
 
     @Override
@@ -106,16 +109,16 @@ public class BaseRelationService implements RelationService {
         validate(from);
         validateTypeGroup(typeGroup);
         ListenableFuture<List<EntityRelation>> relations = relationDao.findAllByFrom(from, typeGroup);
-        ListenableFuture<List<EntityRelationInfo>> relationsInfo = Futures.transform(relations,
+        ListenableFuture<List<EntityRelationInfo>> relationsInfo = Futures.transformAsync(relations,
                 (AsyncFunction<List<EntityRelation>, List<EntityRelationInfo>>) relations1 -> {
-            List<ListenableFuture<EntityRelationInfo>> futures = new ArrayList<>();
+                    List<ListenableFuture<EntityRelationInfo>> futures = new ArrayList<>();
                     relations1.stream().forEach(relation ->
                             futures.add(fetchRelationInfoAsync(relation,
                                     relation2 -> relation2.getTo(),
                                     (EntityRelationInfo relationInfo, String entityName) -> relationInfo.setToName(entityName)))
                     );
                     return Futures.successfulAsList(futures);
-        });
+                }, executor);
         return relationsInfo;
     }
 
@@ -142,16 +145,16 @@ public class BaseRelationService implements RelationService {
         validate(to);
         validateTypeGroup(typeGroup);
         ListenableFuture<List<EntityRelation>> relations = relationDao.findAllByTo(to, typeGroup);
-        ListenableFuture<List<EntityRelationInfo>> relationsInfo = Futures.transform(relations,
+        ListenableFuture<List<EntityRelationInfo>> relationsInfo = Futures.transformAsync(relations,
                 (AsyncFunction<List<EntityRelation>, List<EntityRelationInfo>>) relations1 -> {
                     List<ListenableFuture<EntityRelationInfo>> futures = new ArrayList<>();
                     relations1.stream().forEach(relation ->
-                        futures.add(fetchRelationInfoAsync(relation,
-                                relation2 -> relation2.getFrom(),
-                                (EntityRelationInfo relationInfo, String entityName) -> relationInfo.setFromName(entityName)))
+                            futures.add(fetchRelationInfoAsync(relation,
+                                    relation2 -> relation2.getFrom(),
+                                    (EntityRelationInfo relationInfo, String entityName) -> relationInfo.setFromName(entityName)))
                     );
                     return Futures.successfulAsList(futures);
-                });
+                }, executor);
         return relationsInfo;
     }
 
@@ -159,12 +162,13 @@ public class BaseRelationService implements RelationService {
                                                                         Function<EntityRelation, EntityId> entityIdGetter,
                                                                         BiConsumer<EntityRelationInfo, String> entityNameSetter) {
         ListenableFuture<String> entityName = entityService.fetchEntityNameAsync(entityIdGetter.apply(relation));
-        ListenableFuture<EntityRelationInfo> entityRelationInfo =
-                Futures.transform(entityName, (Function<String, EntityRelationInfo>) entityName1 -> {
+        ListenableFuture<EntityRelationInfo> entityRelationInfo = Futures.transform(entityName,
+                (Function<String, EntityRelationInfo>) entityName1 -> {
                     EntityRelationInfo entityRelationInfo1 = new EntityRelationInfo(relation);
                     entityNameSetter.accept(entityRelationInfo1, entityName1);
                     return entityRelationInfo1;
-                });
+                },
+                executor);
         return entityRelationInfo;
     }
 
@@ -205,7 +209,7 @@ public class BaseRelationService implements RelationService {
                     }
                 }
                 return relations;
-            });
+            }, executor);
         } catch (Exception e) {
             log.warn("Failed to query relations: [{}]", query, e);
             throw new RuntimeException(e);
@@ -217,7 +221,7 @@ public class BaseRelationService implements RelationService {
         log.trace("Executing findInfoByQuery [{}]", query);
         ListenableFuture<List<EntityRelation>> relations = findByQuery(query);
         EntitySearchDirection direction = query.getParameters().getDirection();
-        ListenableFuture<List<EntityRelationInfo>> relationsInfo = Futures.transform(relations,
+        ListenableFuture<List<EntityRelationInfo>> relationsInfo = Futures.transformAsync(relations,
                 (AsyncFunction<List<EntityRelation>, List<EntityRelationInfo>>) relations1 -> {
                     List<ListenableFuture<EntityRelationInfo>> futures = new ArrayList<>();
                     relations1.stream().forEach(relation ->
@@ -232,7 +236,7 @@ public class BaseRelationService implements RelationService {
                                     }))
                     );
                     return Futures.successfulAsList(futures);
-                });
+                }, executor);
         return relationsInfo;
     }
 
@@ -272,17 +276,17 @@ public class BaseRelationService implements RelationService {
         }
     }
 
-    private Function<List<Boolean>, Boolean> getListToBooleanFunction() {
-        return new Function<List<Boolean>, Boolean>() {
+    private AsyncFunction<List<Boolean>, Boolean> getListToBooleanFunction() {
+        return new AsyncFunction<List<Boolean>, Boolean>() {
             @Nullable
             @Override
-            public Boolean apply(@Nullable List<Boolean> results) {
+            public ListenableFuture<Boolean> apply(@Nullable List<Boolean> results) {
                 for (Boolean result : results) {
                     if (result == null || !result) {
-                        return false;
+                        return Futures.immediateFuture(false);
                     }
                 }
-                return true;
+                return Futures.immediateFuture(true);
             }
         };
     }

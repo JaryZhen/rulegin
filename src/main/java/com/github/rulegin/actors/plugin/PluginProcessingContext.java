@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ForkJoinPool;
 
 @Slf4j
 public final class PluginProcessingContext implements PluginContext {
@@ -67,10 +68,10 @@ public final class PluginProcessingContext implements PluginContext {
     @Override
     public void saveAttributes(final EntityId entityId, final String scope, final List<AttributeKvEntry> attributes, final PluginCallback<Void> callback) {
         validate(entityId, new ValidationCallback(callback, ctx -> {
-            ListenableFuture<List<Void>> futures = null ;///pluginCtx.attributesService.save(entityId, scope, attributes);
+            ListenableFuture<List<Void>> futures = null;///pluginCtx.attributesService.save(entityId, scope, attributes);
             Futures.addCallback(futures, getListCallback(callback, v -> {
                 if (entityId.getEntityType() == EntityType.DEVICE) {
-                    onDeviceAttributesChanged( new DeviceId(entityId.getId()), scope, attributes);
+                    onDeviceAttributesChanged(new DeviceId(entityId.getId()), scope, attributes);
                 }
                 return null;
             }), executor);
@@ -239,7 +240,7 @@ public final class PluginProcessingContext implements PluginContext {
                                 } else {
                                     return Boolean.TRUE;
                                 }
-                            }));
+                            }), executor);
                         }
                         return;
               /*      case ASSET:
@@ -277,7 +278,7 @@ public final class PluginProcessingContext implements PluginContext {
                                         return Boolean.TRUE;
                                     }
                                 }
-                            }));
+                            }),executor);
                         }
                         return;
                     case PLUGIN:
@@ -295,7 +296,7 @@ public final class PluginProcessingContext implements PluginContext {
                                         return Boolean.TRUE;
                                     }
                                 }
-                            }));
+                            }),executor);
                         }
                         return;
                     case CUSTOMER:
@@ -313,7 +314,7 @@ public final class PluginProcessingContext implements PluginContext {
                                         return Boolean.TRUE;
                                     }
                                 }
-                            }));
+                            }), executor);
                         }
                         return;
                    /* case TENANT:

@@ -30,9 +30,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ForkJoinPool;
+
 
 @Service
-@Slf4j
 public class BaseEntityService extends AbstractEntityService implements EntityService {
     private static final Logger log = LoggerFactory.getLogger(BaseEntityService.class);
 
@@ -42,6 +44,7 @@ public class BaseEntityService extends AbstractEntityService implements EntitySe
     @Autowired
     private PluginService pluginService;
 
+    Executor executor = new ForkJoinPool();
 
     @Override
     public void deleteEntityRelations(EntityId entityId) {
@@ -64,7 +67,7 @@ public class BaseEntityService extends AbstractEntityService implements EntitySe
             default:
                 throw new IllegalStateException("Not Implemented!");
         }
-        entityName = Futures.transform(hasName, (Function<HasName, String>) hasName1 -> hasName1 != null ? hasName1.getName() : null );
+        entityName = Futures.transform(hasName, (Function<HasName, String>) hasName1 -> hasName1 != null ? hasName1.getName() : null, executor );
         return entityName;
     }
 
